@@ -1,13 +1,15 @@
+import { Algos } from './component/algo';
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route, Outlet } from 'react-router-dom';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<div>aaaaaaaaaaaaaaaaaa</div>} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route element={<div>Container <Outlet /></div>}>
+        <Route path="/" element={<Algos />} />
+        <Route path="/about" element={<div>about</div>} />
+      </Route>
+    </Routes>
   );
 }
 

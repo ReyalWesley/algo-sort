@@ -1,13 +1,13 @@
 import React from 'react';
 
 type ListPropsType = {
-  data: number[];
+  dataSet: number[];
 };
 
-export const List: React.FC<ListPropsType> = ({ data }) => {
+export const List: React.FC<ListPropsType> = ({ dataSet }) => {
   return (
     <div className="flex items-end">
-      {data.map((data, index) => {
+      {dataSet.map((data: number, index: number) => {
         return (
           <div
             key={index}

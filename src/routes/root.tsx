@@ -1,7 +1,7 @@
-import { BubbleSort } from '../component/algo/bubbleSort';
 import React from 'react';
 import '../index.css';
+import { Algos } from '../component/algo';
 
 export default function Root() {
-  return <BubbleSort orderDESC={false} />;
+  return <Algos />;
 }
