@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { List } from '../render/graph/barChart';
+import { List } from './graph/barChart';
 
 type GenerateListParam = {
   size?: number;
@@ -135,9 +135,11 @@ export const SortBlock: React.FC<SortBlockPropsType> = ({
   return (
     <article className="prose">
       <h1>{algoName}</h1>
-      <div>
-        {swap && <p>Number of swap: {countSwap}</p>}
-        {loop && <p>Number of loop: {countLoop}</p>}
+      <div className="sm:flex gap-x-4">
+        <div>
+          {swap && <p>Number of swap: {countSwap}</p>}
+          {loop && <p>Number of loop: {countLoop}</p>}
+        </div>
         <List dataSet={data} />
       </div>
     </article>

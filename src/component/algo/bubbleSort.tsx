@@ -1,7 +1,7 @@
 import {
   SortFunctionParamType,
   SortFunctionReturnType,
-} from '../render/sortBlock';
+} from './render/sortBlock';
 
 export const bubbleSortFunction = (
   params: SortFunctionParamType

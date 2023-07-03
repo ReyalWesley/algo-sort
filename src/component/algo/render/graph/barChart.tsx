@@ -6,12 +6,12 @@ type ListPropsType = {
 
 export const List: React.FC<ListPropsType> = ({ dataSet }) => {
   return (
-    <div className="flex items-end">
+    <div className="flex items-end gap-x-1">
       {dataSet.map((data: number, index: number) => {
         return (
           <div
             key={index}
-            className="bg-red-400 w-10"
+            className="bg-red-400 w-7"
             style={{ height: 'calc(1vh * ' + data * 0.2 + ')' }}
           ></div>
         );

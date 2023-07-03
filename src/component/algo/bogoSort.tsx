@@ -1,7 +1,7 @@
 import {
   SortFunctionParamType,
   SortFunctionReturnType,
-} from '../render/sortBlock';
+} from './render/sortBlock';
 
 function shuffleArray(data: number[]) {
   for (let i = data.length - 1; i > 0; i--) {
