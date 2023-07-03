@@ -1,11 +1,13 @@
-import {
-  SortBlock,
-  SortBlockPropsType,
-  generateList,
-} from '../render/sortBlock';
-import { bubbleSortFunction } from './bubbleSort';
-import { bogoSortFunction } from './bogoSort';
 import React from 'react';
+import '../index.css';
+import { Outlet } from 'react-router-dom';
+import { bogoSortFunction } from '../component/algo/bogoSort';
+import { bubbleSortFunction } from '../component/algo/bubbleSort';
+import {
+  generateList,
+  SortBlockPropsType,
+  SortBlock,
+} from '../component/algo/render/sortBlock';
 
 const data = generateList();
 
@@ -44,6 +46,7 @@ export const Algos: React.FC = () => {
           />
         )
       )}
+      <Outlet />
     </>
   );
 };
