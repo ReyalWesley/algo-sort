@@ -2,7 +2,7 @@ import {
   SortBlock,
   SortBlockPropsType,
   generateList,
-} from '../render/sortBlock';
+} from './render/sortBlock';
 import { bubbleSortFunction } from './bubbleSort';
 import { bogoSortFunction } from './bogoSort';
 import React from 'react';
