@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { List } from './graph/barChart';
+import { BarChart } from './graph/barChart';
+import { useAlgosContext } from '../../../context/data';
 
 type GenerateListParam = {
   size?: number;
@@ -85,7 +86,6 @@ export type SortBlockPropsType = {
   loop?: boolean;
   sortFunction: (params: SortFunctionParamType) => SortFunctionReturnType;
   swap?: boolean;
-  dataSet: number[];
 };
 
 export const SortBlock: React.FC<SortBlockPropsType> = ({
@@ -93,10 +93,10 @@ export const SortBlock: React.FC<SortBlockPropsType> = ({
   loop = true,
   sortFunction,
   swap = true,
-  dataSet,
 }) => {
+  const context = useAlgosContext();
   //dataset
-  const [data, setData] = useState<number[]>(dataSet);
+  const [data, setData] = useState<number[]>(context.data);
 
   const [iterator, setIterator] = useState(1);
 
@@ -108,6 +108,14 @@ export const SortBlock: React.FC<SortBlockPropsType> = ({
 
   //state to stop the sort if the dataset is sorted
   const [sorted, setSorted] = useState(false);
+
+  useEffect(() => {
+    setData(context.data);
+    setIterator(1);
+    setCountSwap(0);
+    setCountLoop(0);
+    setSorted(false);
+  }, [context.data]);
 
   useEffect(() => {
     if (!sorted) {
@@ -140,7 +148,7 @@ export const SortBlock: React.FC<SortBlockPropsType> = ({
           {swap && <p>Number of swap: {countSwap}</p>}
           {loop && <p>Number of loop: {countLoop}</p>}
         </div>
-        <List dataSet={data} />
+        <BarChart dataSet={data} />
       </div>
     </article>
   );

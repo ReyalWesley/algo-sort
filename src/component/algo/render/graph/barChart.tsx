@@ -4,7 +4,7 @@ type ListPropsType = {
   dataSet: number[];
 };
 
-export const List: React.FC<ListPropsType> = ({ dataSet }) => {
+export const BarChart: React.FC<ListPropsType> = ({ dataSet }) => {
   return (
     <div className="flex items-end gap-x-1">
       {dataSet.map((data: number, index: number) => {
