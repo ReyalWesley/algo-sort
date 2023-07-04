@@ -4,42 +4,60 @@ import { Outlet } from 'react-router-dom';
 import { bogoSortFunction } from '../component/algo/bogoSort';
 import { bubbleSortFunction } from '../component/algo/bubbleSort';
 import {
-  generateList,
   SortBlockPropsType,
   SortBlock,
 } from '../component/algo/render/sortBlock';
-
-const data = generateList();
+import { insertionSortFunction } from '../component/algo/insertionSort';
+import { selectionSortFunction } from '../component/algo/selectionSort';
+import { useAlgosContext } from '../context/data';
 
 const algos: SortBlockPropsType[] = [
+  {
+    algoName: 'Selection sort',
+    loop: false,
+    sortFunction: selectionSortFunction,
+    swap: true,
+  },
+  {
+    algoName: 'Insertion sort',
+    loop: false,
+    sortFunction: insertionSortFunction,
+    swap: true,
+  },
   {
     algoName: 'Bubble sort',
     loop: true,
     sortFunction: bubbleSortFunction,
     swap: true,
-    dataSet: data,
   },
   {
     algoName: 'Bogo sort',
     loop: false,
     sortFunction: bogoSortFunction,
     swap: true,
-    dataSet: data,
   },
 ];
 
 export const Algos: React.FC = () => {
+  const context = useAlgosContext();
+
   return (
     <>
+      <button
+        type="button"
+        className="btn btn-neutral"
+        onClick={context.refreshData} // Utilisation de la méthode de rafraîchissement fournie par le contexte
+      >
+        Refresh data
+      </button>
       {algos.map(
         (
-          { algoName, loop, sortFunction, swap, dataSet }: SortBlockPropsType,
+          { algoName, loop, sortFunction, swap }: SortBlockPropsType,
           idx: number
         ) => (
           <SortBlock
             key={idx}
             algoName={algoName}
-            dataSet={dataSet}
             loop={loop}
             sortFunction={sortFunction}
             swap={swap}
