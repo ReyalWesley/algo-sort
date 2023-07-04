@@ -142,8 +142,8 @@ export const SortBlock: React.FC<SortBlockPropsType> = ({
 
   return (
     <article className="prose">
-      <h1>{algoName}</h1>
-      <div className="sm:flex gap-x-4">
+      <h1 className="text-black">{algoName}</h1>
+      <div className="sm:flex gap-x-4 text-black">
         <div>
           {swap && <p>Number of swap: {countSwap}</p>}
           {loop && <p>Number of loop: {countLoop}</p>}
