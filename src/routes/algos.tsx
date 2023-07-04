@@ -45,7 +45,7 @@ export const Algos: React.FC = () => {
     <>
       <button
         type="button"
-        className="btn btn-neutral"
+        className="btn btn-neutral fixed bottom-10"
         onClick={context.refreshData} // Utilisation de la méthode de rafraîchissement fournie par le contexte
       >
         Refresh data
