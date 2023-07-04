@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { List } from './graph/barChart';
+import { useAlgosContext } from '../../../context/data';
 
 type GenerateListParam = {
   size?: number;
@@ -85,7 +86,7 @@ export type SortBlockPropsType = {
   loop?: boolean;
   sortFunction: (params: SortFunctionParamType) => SortFunctionReturnType;
   swap?: boolean;
-  dataSet: number[];
+  dataSet?: number[];
 };
 
 export const SortBlock: React.FC<SortBlockPropsType> = ({
@@ -93,10 +94,11 @@ export const SortBlock: React.FC<SortBlockPropsType> = ({
   loop = true,
   sortFunction,
   swap = true,
-  dataSet,
+  dataSet = [],
 }) => {
+  const context = useAlgosContext();
   //dataset
-  const [data, setData] = useState<number[]>(dataSet);
+  const [data, setData] = useState<number[]>(context.data);
 
   const [iterator, setIterator] = useState(1);
 
@@ -122,7 +124,7 @@ export const SortBlock: React.FC<SortBlockPropsType> = ({
           setData,
           setCountSwap,
         });
-      }, 50);
+      }, 500);
     }
   }, [countSwap, data, iterator, sortFunction, sorted]);
 
