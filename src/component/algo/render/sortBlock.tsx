@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { BarChart } from './graph/barChart';
 import { useAlgosContext } from '../../../context/data';
+import { useSortSpeedContext } from '../../../context/speed';
 
 type GenerateListParam = {
   size?: number;
@@ -11,8 +12,7 @@ export const generateList = (
 ): number[] => {
   const myList = [];
   for (let i = 0; i < size; i++) {
-    // génère un nombre aléatoire entre 1 et 100
-    const randomNumber = 5 + Math.floor(Math.random() * 100);
+    const randomNumber = Math.floor(Math.random() * 100);
     myList.push(randomNumber);
   }
   return myList;
@@ -77,7 +77,6 @@ const sortLoop = ({
     setIterator(iterator + 1);
   }
 
-  //force rerender => useEffect data
   setData(dataCopy);
 };
 
@@ -95,19 +94,14 @@ export const SortBlock: React.FC<SortBlockPropsType> = ({
   swap = true,
 }) => {
   const context = useAlgosContext();
-  //dataset
+  const { sortSpeed } = useSortSpeedContext();
+
   const [data, setData] = useState<number[]>(context.data);
-
   const [iterator, setIterator] = useState(1);
-
-  //swap counter
   const [countSwap, setCountSwap] = useState(0);
-
-  //loop counter
   const [countLoop, setCountLoop] = useState(0);
-
-  //state to stop the sort if the dataset is sorted
   const [sorted, setSorted] = useState(false);
+  const [speed, setSpeed] = useState<number>(sortSpeed);
 
   useEffect(() => {
     setData(context.data);
@@ -116,6 +110,12 @@ export const SortBlock: React.FC<SortBlockPropsType> = ({
     setCountLoop(0);
     setSorted(false);
   }, [context.data]);
+
+  useEffect(() => {
+    if (sortSpeed !== speed) {
+      setSpeed(sortSpeed);
+    }
+  }, [sortSpeed, speed, setSpeed]);
 
   useEffect(() => {
     if (!sorted) {
@@ -130,9 +130,9 @@ export const SortBlock: React.FC<SortBlockPropsType> = ({
           setData,
           setCountSwap,
         });
-      }, 50);
+      }, speed);
     }
-  }, [countSwap, data, iterator, sortFunction, sorted]);
+  }, [countSwap, data, iterator, sortFunction, sorted, sortSpeed]);
 
   useEffect(() => {
     if (iterator === data.length - 1) {
@@ -142,8 +142,8 @@ export const SortBlock: React.FC<SortBlockPropsType> = ({
 
   return (
     <article className="prose">
-      <h1>{algoName}</h1>
-      <div className="sm:flex gap-x-4">
+      <h1 className="text-black">{algoName}</h1>
+      <div className="sm:flex gap-x-4 text-black">
         <div>
           {swap && <p>Number of swap: {countSwap}</p>}
           {loop && <p>Number of loop: {countLoop}</p>}

@@ -10,6 +10,7 @@ import {
 import { insertionSortFunction } from '../component/algo/insertionSort';
 import { selectionSortFunction } from '../component/algo/selectionSort';
 import { useAlgosContext } from '../context/data';
+import { RangeSlider } from '../component/common/input/range';
 
 const algos: SortBlockPropsType[] = [
   {
@@ -39,14 +40,15 @@ const algos: SortBlockPropsType[] = [
 ];
 
 export const Algos: React.FC = () => {
-  const context = useAlgosContext();
+  const { refreshData } = useAlgosContext();
 
   return (
     <>
+      <RangeSlider />
       <button
         type="button"
-        className="btn btn-neutral"
-        onClick={context.refreshData} // Utilisation de la méthode de rafraîchissement fournie par le contexte
+        className="btn btn-neutral fixed bottom-10"
+        onClick={refreshData}
       >
         Refresh data
       </button>

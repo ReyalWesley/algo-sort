@@ -4,8 +4,8 @@ import { Algos } from './algos';
 export const Home: React.FC = () => {
   return (
     <>
-      <article className="prose mb-10">
-        <h1 className="text-center">Description</h1>
+      <article className="prose mb-10 text-black">
+        <h1 className="text-center text-black">Description</h1>
         <p className="text-justify">
           Our website is an interactive platform that showcases dynamic
           renderings of sorting algorithms. Dive into the fascinating world of

@@ -1,13 +1,11 @@
 import { generateList } from '../component/algo/render/sortBlock';
 import React, { createContext, useContext, useState } from 'react';
 
-// Créez un contexte pour le tableau de nombres et la méthode de rafraîchissement
 export const AlgosContext = createContext({
   data: [] as number[],
   refreshData: () => {},
 });
 
-// Créez le composant fournisseur du contexte
 export const AlgosProvider: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
