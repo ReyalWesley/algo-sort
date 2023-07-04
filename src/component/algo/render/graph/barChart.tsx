@@ -11,9 +11,13 @@ export const BarChart: React.FC<ListPropsType> = ({ dataSet }) => {
         return (
           <div
             key={index}
-            className="bg-red-400 w-7"
-            style={{ height: 'calc(1vh * ' + data * 0.2 + ')' }}
-          ></div>
+            className="bg-red-400 w-7 text-center font-bold text-rose-50"
+            style={{
+              height: 'calc(1vh * ' + data * 0.2 + ')',
+            }}
+          >
+            {data}
+          </div>
         );
       })}
     </div>

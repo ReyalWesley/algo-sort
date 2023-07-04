@@ -12,7 +12,7 @@ export const generateList = (
   const myList = [];
   for (let i = 0; i < size; i++) {
     // génère un nombre aléatoire entre 1 et 100
-    const randomNumber = 5 + Math.floor(Math.random() * 100);
+    const randomNumber = Math.floor(Math.random() * 100);
     myList.push(randomNumber);
   }
   return myList;
