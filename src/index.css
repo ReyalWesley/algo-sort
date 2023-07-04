@@ -9,6 +9,18 @@ body {
   overflow-x: hidden;
 }
 
+.body * {
+  color: #141414;
+}
+
+.navbar * {
+  color: #141414;
+}
+
 .navbar {
   background-color: floralwhite;
+}
+
+article.prose * {
+  color: #141414;
 }
