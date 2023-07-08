@@ -1,15 +1,17 @@
 import React from 'react';
 import '../index.css';
 import { Outlet } from 'react-router-dom';
-import { bogoSortFunction } from '../component/algo/bogoSort';
-import { bubbleSortFunction } from '../component/algo/bubbleSort';
 import {
   SortBlockPropsType,
   SortBlock,
 } from '../component/algo/render/sortBlock';
-import { insertionSortFunction } from '../component/algo/insertionSort';
-import { selectionSortFunction } from '../component/algo/selectionSort';
-import { useAlgosContext } from '../context/data';
+import {
+  insertionSortFunction,
+  bogoSortFunction,
+  bubbleSortFunction,
+  selectionSortFunction,
+} from '../component/algo';
+import { useAlgosContext } from '../context';
 import { RangeSlider } from '../component/common/input/range';
 
 const algos: SortBlockPropsType[] = [

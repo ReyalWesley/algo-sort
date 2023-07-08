@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { BarChart } from './graph/barChart';
-import { useAlgosContext } from '../../../context/data';
-import { useSortSpeedContext } from '../../../context/speed';
+import { useAlgosContext, useSortSpeedContext } from '../../../context';
 
 type GenerateListParam = {
   size?: number;
