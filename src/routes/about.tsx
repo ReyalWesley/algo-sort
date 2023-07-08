@@ -2,7 +2,7 @@ import React from 'react';
 import '../index.css';
 import { Link } from 'react-router-dom';
 
-export default function About() {
+export function About() {
   return (
     <article className="prose">
       <h1>Terms of Use</h1>
@@ -51,7 +51,7 @@ export default function About() {
         </Link>
         . If you have any questions or need to get in touch, you can contact me
         at:
-        <p>reyal.wesley@gmail.com</p>
+        <span className="ml-6">reyal.wesley@gmail.com</span>
       </p>
     </article>
   );

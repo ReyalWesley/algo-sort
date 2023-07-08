@@ -3,8 +3,7 @@ import * as ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from '../src/App';
-import { AlgosProvider } from './context/data';
-import { SortSpeedProvider } from './context/speed';
+import { AlgosProvider, SortSpeedProvider } from './context';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>

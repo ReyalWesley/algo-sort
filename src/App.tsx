@@ -1,9 +1,7 @@
-import { Container } from './component/layout/container';
+import { Container } from './component/layout';
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import About from './routes/about';
-import { Algos } from './routes/algos';
-import { Home } from './routes/home';
+import { About, Home, Algos } from './routes';
 
 function App() {
   return (
